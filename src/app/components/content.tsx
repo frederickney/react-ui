@@ -72,8 +72,8 @@ export function Content(props: {subcontent: AssociatedContentResponse; content: 
       props.subcontent.childs = [];
   }
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <main className="block gap-8 row-start-2 items-center sm:items-start fadein">
+    <div className="grid grid-rows-[20px_1fr_10px] items-center justify-items-center min-h-screen p-4 pb-10 gap-8 sm:p-10 font-[family-name:var(--font-geist-sans)]">
+        <main className="block gap-4 row-start-2 items-center sm:items-start fadein">
             <h1>{props.content.title}</h1>
                 <div dangerouslySetInnerHTML={{__html: `${props.content.content}`}}/>
             {props.subcontent.childs.map((child: ContentResponse) => (<SubContent content={child} />))}
