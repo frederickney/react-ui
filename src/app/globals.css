@@ -158,6 +158,12 @@ a:hover, a:focus{
 .container {
   box-sizing: border-box;
 }
+.container ul{
+  list-style: disc;
+}
+.container ul li {
+  margin-left: 15px;
+}
 @media (max-width: 1280px) {
   main {
     max-width: 90%
