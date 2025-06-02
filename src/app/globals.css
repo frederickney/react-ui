@@ -167,10 +167,31 @@ a:hover, a:focus{
   }
 }
 @media (max-width: 720px) {
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 18px;
+  }
   .col-md-4 {
     width: 100%;
   }
-.container .row .col-md-4 a {
+  .container .row .col-md-4 a {
     font-size: 14px
+  }
+  .container p {
+    padding: 0px !important;
   }
 }

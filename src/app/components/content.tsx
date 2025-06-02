@@ -49,9 +49,9 @@ export function SubContent(props: {content:ContentResponse}) {
     else {
         if (subContent.childs != null) {
             return <div className="container">
-                <h4>
+                <h2>
                     {props.content.title}
-                </h4>
+                </h2>
                 <div dangerouslySetInnerHTML={{__html: `${props.content.content}`}}/>
                 <div className="row">
                     {subContent.childs.map((child: ContentResponse) => (<Link content={child} />))}
@@ -59,9 +59,9 @@ export function SubContent(props: {content:ContentResponse}) {
             </div>
         }
         return <div className="container">
-            <h4>
+            <h2>
                 {props.content.title}
-            </h4>
+            </h2>
                 <div dangerouslySetInnerHTML={{__html: `${props.content.content}`}}/>
         </div>
     }
