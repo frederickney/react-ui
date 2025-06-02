@@ -31,7 +31,8 @@ function custom404() {
   const [content, setContent] = useState(initialContent);
   const [subContent, setSubContent] = useState(new AssociatedContentResponse());
   let pathname = usePathname();
-
+  if (!pathname.endsWith('/'))
+    pathname = pathname + '/';
   useEffect(() => {
     const fetchSubPages = async (pageId: number) => {
       try {

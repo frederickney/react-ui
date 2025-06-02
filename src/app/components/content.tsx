@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import { ContentResponse } from "@/app/client/models/ContentResponse"
 import { AssociatedContentResponse } from "@/app/client/models/AssociatedContentResponse"
 import {API} from "@/app/client";
-import {usePathname} from "next/navigation";
 
 export function Link(props: {content:ContentResponse}) {
     return <div className="col-md-4 text-center">
@@ -83,14 +82,3 @@ export function Content(props: {subcontent: AssociatedContentResponse; content: 
   )
   // ...
 }
-
-export const fetchPage: () => Promise<ContentResponse | null> = async ():Promise<ContentResponse | null> => {
-    let pathname = usePathname();
-    try {
-      let response: ContentResponse = await API.apiContentGetApiContentGetGet(pathname);
-      return response;
-    }
-    catch (error) {
-      return null;
-    }
-};

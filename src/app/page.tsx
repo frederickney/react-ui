@@ -20,8 +20,10 @@ initialContent.updatedOn = new Date()
 export default function Home() {
   const [content, setContent] = useState(initialContent);
   const [subContent, setSubContent] = useState(new AssociatedContentResponse());
+  let pathname = usePathname();
+  if (!pathname.endsWith('/'))
+    pathname = pathname + '/';
 
-  let pathname = usePathname()
   useEffect(() => {
 
       const fetchSubPages = async (pageId: number) => {
