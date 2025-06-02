@@ -10,15 +10,13 @@ export function Link(props: {content:ContentResponse}) {
 }
 
 export function SubContent(props: {content:ContentResponse}) {
-    console.log(props.content.title);
-    console.log(props.content.activated);
     const [subContent, setSubContent] = useState(new AssociatedContentResponse())
+
     useEffect(() => {
         async function fetchSubContent(id:number) {
             try {
                 let response = await API.apiContentLinkedApiContentLinkedGet(id)
                 setSubContent(subContent => response)
-
             } catch (error) {
                 setSubContent(subContent => new AssociatedContentResponse())
             }

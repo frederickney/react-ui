@@ -33,25 +33,24 @@ function custom404() {
   let pathname = usePathname();
   if (!pathname.endsWith('/'))
     pathname = pathname + '/';
+
   useEffect(() => {
+
     const fetchSubPages = async (pageId: number) => {
       try {
         const response = await API.apiContentLinkedApiContentLinkedGet(pageId);
-        console.log(response);
         setSubContent(subContent => response);
       } catch (error) {
-        console.log(error);
         setSubContent(subContent => new AssociatedContentResponse());
       }
     };
+
     const fetchPage = async () => {
       try {
         const response = await API.apiContentGetApiContentGetGet(pathname);
-        console.log(response)
         setContent(content => response)
         fetchSubPages(response.id)
       } catch (error) {
-        console.log(error)
         notFoundContent.url = pathname
         notFoundContent.content = `${'\
           <h1 class="next-error-h1 text-center">404 - ' + pathname + '</h1>\
@@ -60,6 +59,7 @@ function custom404() {
         setContent(content => notFoundContent)
       }
     };
+
     fetchPage();
   }, []);
 

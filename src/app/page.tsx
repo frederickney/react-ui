@@ -29,21 +29,18 @@ export default function Home() {
       const fetchSubPages = async (pageId: number) => {
         try {
           const response = await API.apiContentLinkedApiContentLinkedGet(pageId);
-          console.log(response);
           setSubContent(subContent => response);
         } catch (error) {
-          console.log(error);
           setSubContent(subContent => new AssociatedContentResponse());
         }
       };
 
       const fetchPage = async () => {
-
         const response = await API.apiContentGetApiContentGetGet(pathname);
-        console.log(response)
         setContent(content => response)
         fetchSubPages(response.id);
       };
+
       fetchPage();
   }, []);
 
