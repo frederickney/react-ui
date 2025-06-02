@@ -160,7 +160,7 @@ a:hover, a:focus{
 }
 @media (max-width: 1280px) {
   .col-md-4 {
-    width: 50%;
+    width: 100%;
   }
   .container .row .col-md-4 a {
     font-size: 20px
