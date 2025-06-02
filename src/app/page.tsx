@@ -1,11 +1,12 @@
 "use client";
-import Image from "next/image";
-import {usePathname} from 'next/navigation'
-import {API} from "./client"
+
 import {useEffect, useState} from "react";
-import {Content} from "./components/content";
-import { ContentResponse } from "@/app/client/models/ContentResponse"
-import { AssociatedContentResponse } from "@/app/client/models/AssociatedContentResponse"
+import {usePathname} from 'next/navigation'
+
+import {API} from "@/app/client"
+import {Content} from "@/app/components/content";
+import {ContentResponse} from "@/app/client/models/ContentResponse"
+import {AssociatedContentResponse} from "@/app/client/models/AssociatedContentResponse"
 
 let initialContent = new ContentResponse();
 initialContent.content = '<Image class="load" src="/icons.svg" alt="neyconsulting" width=320 height=320 priority />'
@@ -18,31 +19,31 @@ initialContent.createdOn = new Date()
 initialContent.updatedOn = new Date()
 
 export default function Home() {
-  const [content, setContent] = useState(initialContent);
-  const [subContent, setSubContent] = useState(new AssociatedContentResponse());
-  let pathname = usePathname();
-  if (!pathname.endsWith('/'))
-    pathname = pathname + '/';
+    const [content, setContent] = useState(initialContent);
+    const [subContent, setSubContent] = useState(new AssociatedContentResponse());
+    let pathname = usePathname();
+    if (!pathname.endsWith('/'))
+        pathname = pathname + '/';
 
-  useEffect(() => {
+    useEffect(() => {
 
-      const fetchSubPages = async (pageId: number) => {
-        try {
-          const response = await API.apiContentLinkedApiContentLinkedGet(pageId);
-          setSubContent(subContent => response);
-        } catch (error) {
-          setSubContent(subContent => new AssociatedContentResponse());
-        }
-      };
+        const fetchSubPages = async (pageId: number) => {
+            try {
+                const response = await API.apiContentLinkedApiContentLinkedGet(pageId);
+                setSubContent(subContent => response);
+            } catch (error) {
+                setSubContent(subContent => new AssociatedContentResponse());
+            }
+        };
 
-      const fetchPage = async () => {
-        const response = await API.apiContentGetApiContentGetGet(pathname);
-        setContent(content => response)
-        fetchSubPages(response.id);
-      };
+        const fetchPage = async () => {
+            const response = await API.apiContentGetApiContentGetGet(pathname);
+            setContent(content => response)
+            fetchSubPages(response.id);
+        };
 
-      fetchPage();
-  }, []);
+        fetchPage();
+    }, []);
 
-  return <Content content={content} pathname={pathname} subcontent={subContent}/>
+    return <Content content={content} pathname={pathname} subcontent={subContent}/>
 }
