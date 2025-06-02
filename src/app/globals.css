@@ -162,10 +162,15 @@ a:hover, a:focus{
   .col-md-4 {
     width: 50%;
   }
+  .container .row .col-md-4 a {
+    font-size: 20px
+  }
 }
 @media (max-width: 720px) {
   .col-md-4 {
     width: 100%;
   }
-
+.container .row .col-md-4 a {
+    font-size: 14px
+  }
 }
