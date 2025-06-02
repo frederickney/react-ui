@@ -159,6 +159,9 @@ a:hover, a:focus{
   box-sizing: border-box;
 }
 @media (max-width: 1280px) {
+  main {
+    max-width: 90%
+  }
   .col-md-4 {
     width: 100%;
   }
