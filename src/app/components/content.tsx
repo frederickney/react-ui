@@ -32,9 +32,9 @@ export function SubContent(props: { content: ContentResponse }) {
         if (subContent.childs != null) {
             return (
                 <div className="container">
-                    <h4>
+                    <h2>
                         <a href={props.content.url}>{props.content.title}</a>
-                    </h4>
+                    </h2>
                     <div dangerouslySetInnerHTML={{__html: `${props.content.content}`}}/>
                     <div className="row">
                         {subContent.childs.map((child: ContentResponse) => (<Link content={child}/>))}
@@ -43,9 +43,9 @@ export function SubContent(props: { content: ContentResponse }) {
             )
         }
         return <div className="container">
-            <h4>
+            <h2>
                 <a href={props.content.url}>{props.content.title}</a>
-            </h4>
+            </h2>
             <div dangerouslySetInnerHTML={{__html: `${props.content.content}`}}>
             </div>
         </div>
